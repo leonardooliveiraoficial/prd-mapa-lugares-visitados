@@ -24,6 +24,8 @@ export default function MapView() {
       <MapContainer
         center={[-20, -45]}
         zoom={5}
+        zoomControl={false}
+        scrollWheelZoom={true}
         style={{
           height: '100vh',
           width: '100vw',
