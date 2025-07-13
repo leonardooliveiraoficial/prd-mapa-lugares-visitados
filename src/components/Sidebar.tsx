@@ -133,7 +133,7 @@ export default function Sidebar({ locations }: Props) {
                 color: '#fff8',
               }}
             >
-              Você já visitou <b>{total}</b> cidades em <b>{paises.length}</b> países!
+              Eu já visitei <b>{total}</b> cidades em <b>{paises.length}</b> países!
             </div>
           </div>
           {/* Lista de cidades */}
