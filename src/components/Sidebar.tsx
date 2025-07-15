@@ -136,7 +136,7 @@ export default function Sidebar({ locations }: Props) {
               Eu já visitei <b>{total}</b> cidades em <b>{paises.length}</b> países!
             </div>
           </div>
-          {/* Lista de cidades */}
+          {/* Lista de cidades, estados e países */}
           <div>
             <div
               style={{
@@ -146,7 +146,7 @@ export default function Sidebar({ locations }: Props) {
                 letterSpacing: 0.5,
               }}
             >
-              Lista de cidades:
+              Lista de cidades, estados e países:
             </div>
             <ul
               style={{
@@ -187,6 +187,7 @@ export default function Sidebar({ locations }: Props) {
                       color: '#8ff',
                       fontSize: 14,
                       marginLeft: 'auto',
+                      marginRight: 14,
                     }}
                   >
                     {loc.pais}
