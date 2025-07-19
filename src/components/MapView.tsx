@@ -1,4 +1,5 @@
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { useState, useEffect } from 'react';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import { locations as initialLocations } from '../data/locations';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -12,18 +13,33 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
 });
 
+// Componente auxiliar para mudar centro/zoom
+function ChangeView({ center, zoom }: { center: [number, number]; zoom: number }) {
+  const map = useMap();
+  useEffect(() => {
+    map.setView(center, zoom);
+  }, [center, zoom, map]);
+  return null;
+}
+
 export default function MapView() {
+  const [center, setCenter] = useState<[number, number]>([-20, -45]);
+  const [zoom, setZoom] = useState(5);
+
+  // Função chamada ao clicar na cidade
+  function handleCityClick(lat: number, lng: number) {
+    setCenter([lat, lng]);
+    setZoom(12); // Zoom mais próximo
+  }
+
   const locations = initialLocations;
 
   return (
     <div>
-      {/* Sidebar com card e lista */}
-      <Sidebar locations={locations} />
-
-      {/* Mapa ocupa toda a tela, mas sidebar fica por cima no canto */}
+      <Sidebar locations={locations} onCityClick={handleCityClick} />
       <MapContainer
-        center={[-20, -45]}
-        zoom={5}
+        center={center}
+        zoom={zoom}
         zoomControl={false}
         scrollWheelZoom={true}
         style={{
@@ -37,6 +53,7 @@ export default function MapView() {
         }}
         className="leaflet-container"
       >
+        <ChangeView center={center} zoom={zoom} />
         <TileLayer
           attribution='&copy; OpenStreetMap contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

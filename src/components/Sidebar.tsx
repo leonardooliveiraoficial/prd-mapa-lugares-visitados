@@ -9,12 +9,13 @@ type Location = {
   lng: number;
 };
 
-// Definição do tipo Props (recebe locations)
+// Definição do tipo Props (recebe locations e função de clique)
 type Props = {
   locations: Location[];
+  onCityClick?: (lat: number, lng: number) => void;
 };
 
-export default function Sidebar({ locations }: Props) {
+export default function Sidebar({ locations, onCityClick }: Props) {
   const [open, setOpen] = useState(false);
 
   // Detecta mobile (bem simples)
@@ -166,7 +167,10 @@ export default function Sidebar({ locations }: Props) {
                     borderBottom: '1px solid #fff1',
                     display: 'flex',
                     alignItems: 'center',
+                    cursor: onCityClick ? 'pointer' : 'default',
                   }}
+                  onClick={() => onCityClick?.(loc.lat, loc.lng)}
+                  title="Ver no mapa"
                 >
                   <span
                     style={{
