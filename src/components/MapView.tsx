@@ -45,7 +45,7 @@ export default function MapView() {
         zoomControl={false}
         scrollWheelZoom={true}
         minZoom={3}
-        maxZoom={22}
+        maxZoom={17}
         maxBounds={bounds}
         preferCanvas={true}
         style={{
