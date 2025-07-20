@@ -1,5 +1,4 @@
 
-
 import { useMemo, useState } from 'react';
 
 type Location = {
@@ -15,7 +14,7 @@ type Props = {
   onCityClick?: (lat: number, lng: number) => void;
 };
 
-const SIDEBAR_STYLE = (isMobile: boolean, open: boolean) => ({
+const SIDEBAR_STYLE = (open: boolean) => ({
   position: 'fixed' as const,
   top: 24,
   left: 24,
@@ -185,7 +184,8 @@ function getCountryFlag(country: string): string {
 
 export default function Sidebar({ locations, onCityClick }: Props) {
   const [open, setOpen] = useState(false);
-  const isMobile = window.innerWidth < 700;
+  // Detecta mobile dinamicamente
+  const isMobile = typeof window !== 'undefined' ? window.innerWidth <= 700 : false;
   const total = locations.length;
   const estados = useMemo(() => Array.from(new Set(locations.map(l => l.estado).filter(e => e && e.trim() !== ''))), [locations]);
   const paises = useMemo(() => Array.from(new Set(locations.map(l => l.pais))), [locations]);
@@ -240,7 +240,7 @@ export default function Sidebar({ locations, onCityClick }: Props) {
         </button>
       )}
       {open && (
-        <aside style={SIDEBAR_STYLE(isMobile, open)}>
+        <aside style={SIDEBAR_STYLE(open)}>
           <button
             onClick={() => setOpen(false)}
             style={CLOSE_BTN_STYLE}

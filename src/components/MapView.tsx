@@ -34,6 +34,8 @@ export default function MapView() {
 
   const locations = initialLocations;
 
+  // Limites do mundo (latitude: -85 a 85, longitude: -180 a 180)
+  const bounds: L.LatLngBoundsExpression = [[-85, -180], [85, 180]];
   return (
     <div>
       <Sidebar locations={locations} onCityClick={handleCityClick} />
@@ -42,6 +44,10 @@ export default function MapView() {
         zoom={zoom}
         zoomControl={false}
         scrollWheelZoom={true}
+        minZoom={3}
+        maxZoom={12}
+        maxBounds={bounds}
+        preferCanvas={true}
         style={{
           height: '100vh',
           width: '100vw',
