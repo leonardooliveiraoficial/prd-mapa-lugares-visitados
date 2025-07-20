@@ -20,7 +20,7 @@ const SIDEBAR_STYLE = (isMobile: boolean, open: boolean) => ({
   top: 24,
   left: 24,
   zIndex: 1500,
-  width: 400,
+  width: 'calc(100vw - 48px)',
   minHeight: 100,
   background: 'rgba(22,22,28,0.98)', // fundo escuro mais neutro
   borderRadius: 36,
