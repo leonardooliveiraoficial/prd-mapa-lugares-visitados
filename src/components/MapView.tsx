@@ -29,7 +29,7 @@ export default function MapView() {
   // Função chamada ao clicar na cidade
   function handleCityClick(lat: number, lng: number) {
     setCenter([lat, lng]);
-    setZoom(12); // Zoom mais próximo
+    setZoom(12); // Zoom mais afastado ao clicar
   }
 
   const locations = initialLocations;
@@ -45,7 +45,7 @@ export default function MapView() {
         zoomControl={false}
         scrollWheelZoom={true}
         minZoom={3}
-        maxZoom={12}
+        maxZoom={22}
         maxBounds={bounds}
         preferCanvas={true}
         style={{
