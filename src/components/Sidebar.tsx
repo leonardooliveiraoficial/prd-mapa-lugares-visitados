@@ -17,16 +17,16 @@ type Props = {
 
 const SIDEBAR_STYLE = (isMobile: boolean, open: boolean) => ({
   position: (isMobile ? 'fixed' : 'absolute') as 'fixed' | 'absolute',
-  top: isMobile ? 24 : 44,
-  left: isMobile ? 0 : 24,
+  top: isMobile ? 24 : 24,
+  left: isMobile ? 0 : '50%',
   zIndex: 1500,
-  width: isMobile ? '94vw' : 400,
+  width: isMobile ? '94vw' : 340,
   minHeight: 100,
   background: 'rgba(22,22,28,0.98)', // fundo escuro mais neutro
-  borderRadius: 28,
+  borderRadius: 36,
   boxShadow: '0 8px 32px 0 rgba(0,0,0,0.32)',
   color: '#fff',
-  padding: isMobile ? 18 : 28,
+  padding: isMobile ? 18 : 20,
   fontFamily: 'Sora, Arial, sans-serif',
   height: isMobile ? '100vh' : undefined,
   maxHeight: isMobile ? '100vh' : 600,
@@ -35,8 +35,8 @@ const SIDEBAR_STYLE = (isMobile: boolean, open: boolean) => ({
   transition: 'all 0.3s cubic-bezier(.77,.2,.24,1) 0s',
   boxSizing: 'border-box' as const,
   opacity: open ? 1 : 0,
-  transform: open ? 'translateX(0)' : 'translateX(-40px)',
-  gap: isMobile ? 14 : 18,
+  transform: open ? (isMobile ? 'translateX(0)' : 'translateX(-50%)') : (isMobile ? 'translateX(-40px)' : 'translateX(-60px)'),
+  gap: isMobile ? 14 : 16,
 });
 
 const CLOSE_BTN_STYLE = {
