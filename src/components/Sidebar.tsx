@@ -17,7 +17,7 @@ type Props = {
 
 const SIDEBAR_STYLE = (isMobile: boolean, open: boolean) => ({
   position: (isMobile ? 'fixed' : 'absolute') as 'fixed' | 'absolute',
-  top: isMobile ? 0 : 32,
+  top: isMobile ? 24 : 44,
   left: isMobile ? 0 : 24,
   zIndex: 1500,
   width: isMobile ? '94vw' : 400,
@@ -190,6 +190,10 @@ export default function Sidebar({ locations, onCityClick }: Props) {
   const estados = useMemo(() => Array.from(new Set(locations.map(l => l.estado).filter(e => e && e.trim() !== ''))), [locations]);
   const paises = useMemo(() => Array.from(new Set(locations.map(l => l.pais))), [locations]);
 
+  function handleCityClick(lat: number, lng: number) {
+    setOpen(false);
+    onCityClick?.(lat, lng);
+  }
   return (
     <>
       {!open && (
@@ -280,7 +284,7 @@ export default function Sidebar({ locations, onCityClick }: Props) {
                   ...LI_STYLE(isMobile),
                   borderBottom: i < locations.length - 1 ? '1px solid #222' : 'none',
                 }}
-                onClick={() => onCityClick?.(loc.lat, loc.lng)}
+                onClick={() => handleCityClick(loc.lat, loc.lng)}
                 title="Ver no mapa"
                 onMouseOver={e => {
                   if (onCityClick) (e.currentTarget as HTMLElement).style.background = '#232323';
