@@ -28,6 +28,6 @@ export const locations = [
   { cidade: "Rio de Janeiro", estado: "RJ", pais: "Brasil", lat: -22.9068, lng: -43.1729 },
 
   // Fora do Brasil
-  { cidade: "Paraguai", estado: "", pais: "Paraguai", lat: -23.4425, lng: -58.4438 },
-  { cidade: "Argentina", estado: "", pais: "Argentina", lat: -34.6037, lng: -58.3816 },
+  { cidade: "Ciudad del Este", estado: "PR", pais: "Paraguai", lat: -25.5167, lng: -54.6167 },
+  { cidade: "Puerto Iguazú", estado: "MN", pais: "Argentina", lat: -25.6011, lng: -54.5781 },
 ];
