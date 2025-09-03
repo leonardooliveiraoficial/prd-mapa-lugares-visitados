@@ -18,6 +18,7 @@ export const locations = [
   { cidade: "São Gonçalo do Sapucaí", estado: "MG", pais: "Brasil", lat: -21.8907, lng: -45.5942 },
   { cidade: "Varginha", estado: "MG", pais: "Brasil", lat: -21.5556, lng: -45.4364 },
   { cidade: "Nepomuceno", estado: "MG", pais: "Brasil", lat: -21.2327, lng: -45.2351 },
+  { cidade: "Mariana", estado: "MG", pais: "Brasil", lat: -20.3761, lng: -43.4168 },
 
   // Outros estados
   { cidade: "Floripa", estado: "SC", pais: "Brasil", lat: -27.5954, lng: -48.548 },
