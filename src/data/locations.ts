@@ -21,6 +21,7 @@ export const locations = [
   { cidade: "Mariana", estado: "MG", pais: "Brasil", lat: -20.3761, lng: -43.4168 },
   { cidade: "Santo Antônio do Amparo", estado: "MG", pais: "Brasil", lat: -20.9433, lng: -44.9187 },
   { cidade: "Serra da Moeda", estado: "MG", pais: "Brasil", lat: -20.1950, lng: -43.9788 },
+  { cidade: "Lapinha da Serra", estado: "MG", pais: "Brasil", lat: -19.11885, lng: -43.68003 },
 
   // Outros estados
   { cidade: "Floripa", estado: "SC", pais: "Brasil", lat: -27.5954, lng: -48.548 },
