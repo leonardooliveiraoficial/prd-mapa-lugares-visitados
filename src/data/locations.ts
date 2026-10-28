@@ -24,6 +24,7 @@ export const locations = [
   { cidade: "Lapinha da Serra", estado: "MG", pais: "Brasil", lat: -19.11885, lng: -43.68003 },
   { cidade: "Santana do Riacho", estado: "MG", pais: "Brasil", lat: -19.2905, lng: -43.5933 },
   { cidade: "Andradas", estado: "MG", pais: "Brasil", lat: -22.0677, lng: -46.5727 },
+  { cidade: "Jaboticatubas", estado: "MG", pais: "Brasil", lat: -19.514, lng: -43.7461 },
 
 
   // Outros estados
